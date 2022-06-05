@@ -6,7 +6,7 @@
 #    By: yobougre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/02 13:27:10 by yobougre          #+#    #+#              #
-#    Updated: 2022/06/03 10:35:56 by yobougre         ###   ########.fr        #
+#    Updated: 2022/06/05 17:18:44 by yobougre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCL=	includes/includes.h\
 
 OBJS=	$(SRCS:.c=.o)
 
-CFLAGS=	-Wall -Werror -Wextra -g3
+CFLAGS=	-Wall -Werror -Wextra -g3 -pthread
 
 RM=		rm -f
 
