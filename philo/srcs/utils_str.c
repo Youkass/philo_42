@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_main.c                                       :+:      :+:    :+:   */
+/*   utils_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/05 10:33:41 by yobougre         ###   ########.fr       */
+/*   Created: 2022/06/05 10:19:57 by yobougre          #+#    #+#             */
+/*   Updated: 2022/06/05 10:21:56 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	main(int ac, char **av)
+int	ft_strlen(char *s)
 {
-	if (ac < 5 || ac > 6)
-		return (ft_invalid_nb(), 1);
+	int	i;
+
+	i = 0;
+	if (!s)
+		return (i);
+	while (s[i])
+		++i;
+	return (i);
 }

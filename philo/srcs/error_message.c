@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_main.c                                       :+:      :+:    :+:   */
+/*   error_message.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/05 10:33:41 by yobougre         ###   ########.fr       */
+/*   Created: 2022/06/05 10:28:55 by yobougre          #+#    #+#             */
+/*   Updated: 2022/06/05 10:33:09 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	main(int ac, char **av)
+void	ft_putstr_fd(int fd, char *s)
 {
-	if (ac < 5 || ac > 6)
-		return (ft_invalid_nb(), 1);
+	write(fd, s, ft_strlen(s));
+}
+
+void	ft_invalid_nb(void)
+{
+	ft_putstr_fd(2, INV_NB_ARG);
 }
