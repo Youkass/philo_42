@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rmechety <rmechety@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -45,6 +45,8 @@ int	ft_check_all(char **args, int nb);
 /*                          FILE = srcs/philo_main.c                          */
 /* -------------------------------------------------------------------------- */
 int	ft_create_data(t_philo **data, int nb);
+void	ft_routine(void *philo);
+int	ft_init_philo(t_data *data, int nb);
 int	main(int ac, char **av);
 
 
