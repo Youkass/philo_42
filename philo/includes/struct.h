@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:24:23 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/05 17:08:31 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/06 14:22:30 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@
 
 typedef struct	s_philo
 {
-	int		id;
-	int		tt_die;
-	int		tt_spleep;
+	int				id;
+	int				tt_die;
+	int				tt_spleep;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*r_fork;
 }	t_philo;
 
 typedef struct	s_data

@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/06 09:07:07 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/06 15:09:32 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ int	ft_create_data(t_philo **data, int nb)
 	if (!*data)
 		return (1);
 	return (0);
+}
+
+void	ft_routine(void *philo)
+{
+	
+}
+
+int	ft_init_philo(t_data *data, int nb)
+{
+	if (ft_create_data(&data, nb))
+		return (1);
 }
 
 int	main(int ac, char **av)
