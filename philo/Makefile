@@ -6,13 +6,18 @@
 #    By: yobougre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/02 13:27:10 by yobougre          #+#    #+#              #
-#    Updated: 2022/06/05 17:18:44 by yobougre         ###   ########.fr        #
+#    Updated: 2022/06/06 09:13:40 by yobougre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	philo
 
-SRCS=	srcs/philo_main.c
+SRCS=	srcs/philo_main.c\
+		srcs/check_args.c\
+		srcs/error_message.c\
+		srcs/utils_str.c\
+		srcs/ft_atol.c
+
 
 INCL=	includes/includes.h\
 		includes/struct.h\
@@ -27,6 +32,7 @@ RM=		rm -f
 CC=		gcc
 
 all: $(NAME)
+
 
 $(NAME): $(INCL) $(OBJS)
 	@echo "\033[1;34m"

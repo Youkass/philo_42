@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/05 17:03:14 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/06 09:07:07 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int	ft_create_data(t_philo **data, int nb)
 int	main(int ac, char **av)
 {
 	t_data	*data;
-
+	
+	(void)av;
+	(void)data;
 	if (ac == 5 )
 	{
 		return (0);

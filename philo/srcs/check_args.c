@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 10:39:33 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/05 16:54:09 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/06 09:12:11 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_check_str(char *s)
 {
 	int	size;
 
-	ft_num_len(ft_atol(nbr), &size);
+	ft_num_len(ft_atol(s), &size);
 	if (ft_strlen(s) != size)
 		return (1);
 	return (0);
