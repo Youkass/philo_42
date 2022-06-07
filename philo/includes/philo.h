@@ -17,15 +17,18 @@
 # include "struct.h"
 
 /* -------------------------------------------------------------------------- */
+/*                          FILE = srcs/philo_main.c                          */
+/* -------------------------------------------------------------------------- */
+int	ft_create_data(t_data *data, int nb);
+void	*ft_routine(void *philo);
+int	ft_init_philo(t_data *data, int nb);
+int	ft_create_philo(t_data *data);
+int	main(int ac, char **av);
+
+/* -------------------------------------------------------------------------- */
 /*                          FILE = srcs/utils_str.c                           */
 /* -------------------------------------------------------------------------- */
 int	ft_strlen(char *s);
-
-/* -------------------------------------------------------------------------- */
-/*                        FILE = srcs/error_message.c                         */
-/* -------------------------------------------------------------------------- */
-void	ft_putstr_fd(int fd, char *s);
-void	ft_invalid_nb(void);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = srcs/ft_atol.c                            */
@@ -42,12 +45,16 @@ int	ft_check_str(char *s);
 int	ft_check_all(char **args, int nb);
 
 /* -------------------------------------------------------------------------- */
-/*                          FILE = srcs/philo_main.c                          */
+/*                           FILE = srcs/parsing.c                            */
 /* -------------------------------------------------------------------------- */
-int	ft_create_data(t_philo **data, int nb);
-void	ft_routine(void *philo);
-int	ft_init_philo(t_data *data, int nb);
-int	main(int ac, char **av);
+int	ft_parse(t_data *data, char **av, int ac);
+
+/* -------------------------------------------------------------------------- */
+/*                        FILE = srcs/error_message.c                         */
+/* -------------------------------------------------------------------------- */
+void	ft_putstr_fd(int fd, char *s);
+void	ft_invalid_args(void);
+void	ft_invalid_nb(void);
 
 
 #endif

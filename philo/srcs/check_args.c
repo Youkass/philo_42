@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 10:39:33 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/06 09:12:11 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/07 13:31:48 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ void	ft_num_len(int nbr, int *size)
 		*size += 1;
 	else
 	{
-		ft_num_len(nbr / 10, size);
 		ft_num_len(nbr % 10, size);
+		ft_num_len(nbr / 10, size);
 	}
 }
 
 int	ft_check_str(char *s)
 {
 	int	size;
-
+	
+	size = 0;
 	ft_num_len(ft_atol(s), &size);
-	if (ft_strlen(s) != size)
+	if (ft_strlen(s) != size || ft_atol(s) < 0)
 		return (1);
 	return (0);
 }

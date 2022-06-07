@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_message.c                                    :+:      :+:    :+:   */
+/*   action.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 10:28:55 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/07 09:43:44 by yobougre         ###   ########.fr       */
+/*   Created: 2022/06/07 14:27:31 by yobougre          #+#    #+#             */
+/*   Updated: 2022/06/07 14:39:38 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-void	ft_putstr_fd(int fd, char *s)
+void	ft_print_state(t_philo *philo, char *state)
 {
-	write(fd, s, ft_strlen(s));
 }
 
-void	ft_invalid_args(void)
+int	ft_eat(t_philo philo)
 {
-	ft_putstr_fd(2, "some of the arguments are not digits\n");
-}
-
-void	ft_invalid_nb(void)
-{
-	ft_putstr_fd(2, INV_NB_ARG);
 }
