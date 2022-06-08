@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/07 14:21:45 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/08 12:35:33 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 	
-	if (ac == 5 )
+	if (ac >= 5 && ac <= 6)
 	{
 		if (ft_check_all(av, ac))
 			return (ft_invalid_args(), 1);
@@ -96,10 +96,6 @@ int	main(int ac, char **av)
 		if (ft_join(&data))
 			return (1);
 		free(data.philo);
-		return (0);
-	}
-	else if  (ac == 6)
-	{
 		return (0);
 	}
 	else
