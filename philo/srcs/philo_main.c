@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/08 12:35:33 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/12 14:18:26 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	*ft_routine(void *philo_p)
 
 	philo = (t_philo *)philo_p;
 	printf("fuck %d\n", philo->id);
+	ft_print_state(philo, "entrain de te faire chier");
 	return (NULL);
 }
 
