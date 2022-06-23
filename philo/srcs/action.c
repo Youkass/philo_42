@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:27:31 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/23 14:33:07 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/23 14:43:08 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ static void	ft_fork(t_philo *philo, pthread_mutex_t *fork)
 
 int	ft_take_fork(t_data *data, int index)
 {
-	if (index < 1)
+	if (index < 1 && !data.is_dead)
 	{
 		ft_fork(data->philo[index], &(data->philo[nb_of - 1]->r_fork));
 		ft_fork(data->philo[index], &(data->philo[index]->r_fork));
 		ft_eat(data, index);
 		pthread_mutex_unlock(data->philo[index]->r_fork);
 		pthread_mutex_unlock(data->philo[nb_of - 1]->r_fork);
+		return (0);
 	}
-	else
+	else if (!data.is_dead && index >= 1)
 	{
 		ft_fork(data->philo[index], &(data->philo[index - 1]->r_fork));
 		ft_fork(data->philo[index], &(data->philo[index]->r_fork));
@@ -42,6 +43,7 @@ int	ft_take_fork(t_data *data, int index)
 		pthread_mutex_unlock(data->philo[index]->r_fork);
 		return (0);
 	}
+	return (1);
 }
 
 int	ft_eat(t_data *data, int index)

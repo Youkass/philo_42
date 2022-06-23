@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/23 13:43:20 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/23 14:48:32 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_init_last_meal(t_data *data)
 	i = 0;
 	while (i < data->nb_of)
 		data->philo[i++].last_meal = ft_get_time();
+	data.is_dead = 0;
 }
 
 int	ft_init_philo(t_data *data, int nb)
