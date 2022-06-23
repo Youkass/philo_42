@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/12 14:18:26 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/23 13:43:20 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ void	*ft_routine(void *philo_p)
 	return (NULL);
 }
 
+void	ft_init_last_meal(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->nb_of)
+		data->philo[i++].last_meal = ft_get_time();
+}
+
 int	ft_init_philo(t_data *data, int nb)
 {
 	int	i;
@@ -49,6 +58,7 @@ int	ft_init_philo(t_data *data, int nb)
 			data->philo[i].nb_to_eat = data->nb_to_eat;
 		++i;
 	}
+	ft_init_last_meal(data);
 	return (0);
 }
 
