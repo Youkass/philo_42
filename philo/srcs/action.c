@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:27:31 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/23 14:43:08 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:35:42 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,42 @@ void	ft_print_state(t_philo *philo, char *state)
 	printf("%d %d is %s\n", ft_get_time(), philo->id, state);
 }
 
-static void	ft_fork(t_philo *philo, pthread_mutex_t *fork)
+void	ft_sleep(t_philo *philo)
 {
-	pthread_mutex_lock(*fork);
+	ft_print_state(philo, "is sleeping");
+	usleep(philo->tt_sleep);
+}
+
+void	ft_think(t_philo *philo)
+{
+	ft_print_state(philo, "is thinking");
+	usleep(philo->tt_think);
+}
+
+int	ft_take_fork(t_philo *philo)
+{
+	if (philo->is_dead)
+		return (1);
+	pthread_mutex_lock(philo->l_fork);
 	ft_print_state(philo, "has taken a fork");
+	pthread_mutex_lock(philo->r_fork);
+	ft_print_state(philo, "has taken a fork");
+	if (ft_eat(philo))
+		return (1);
+	pthread_mutex_unlock(philo->l_fork);
+	pthread_mutex_unlock(philo->r_fork);
+	return (0);
 }
 
-int	ft_take_fork(t_data *data, int index)
+int	ft_eat(t_philo *philo)
 {
-	if (index < 1 && !data.is_dead)
+	if (ft_get_time() - philo->last_meal >= philo->tt_die || data->is_dead)
 	{
-		ft_fork(data->philo[index], &(data->philo[nb_of - 1]->r_fork));
-		ft_fork(data->philo[index], &(data->philo[index]->r_fork));
-		ft_eat(data, index);
-		pthread_mutex_unlock(data->philo[index]->r_fork);
-		pthread_mutex_unlock(data->philo[nb_of - 1]->r_fork);
-		return (0);
-	}
-	else if (!data.is_dead && index >= 1)
-	{
-		ft_fork(data->philo[index], &(data->philo[index - 1]->r_fork));
-		ft_fork(data->philo[index], &(data->philo[index]->r_fork));
-		ft_eat(data, index);
-		pthread_mutex_unlock(data->philo[index - 1]->r_fork);
-		pthread_mutex_unlock(data->philo[index]->r_fork);
-		return (0);
-	}
-	return (1);
-}
-
-int	ft_eat(t_data *data, int index)
-{
-	if (ft_get_time() - philo.last_meal >= philo.tt_die || data.is_dead)
-	{
-		data.is_dead = 1;
+		philo->is_dead = 1;
 		return (1);
 	}
-	ft_print_state(data->philo[index], "is eating");
-	data->philo[index].last_meal = ft_get_time();
+	ft_print_state(philo, "is eating");
+	philo->last_meal = ft_get_time();
+	usleep(philo->tt_eat);
 	return (0);
 }

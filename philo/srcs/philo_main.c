@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/23 14:48:32 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:41:41 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@ int	ft_create_data(t_data *data, int nb)
 	return (0);
 }
 
-void	*ft_routine(void *philo_p)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *)philo_p;
-	printf("fuck %d\n", philo->id);
-	ft_print_state(philo, "entrain de te faire chier");
-	return (NULL);
-}
-
 void	ft_init_last_meal(t_data *data)
 {
 	int	i;
@@ -37,7 +27,7 @@ void	ft_init_last_meal(t_data *data)
 	i = 0;
 	while (i < data->nb_of)
 		data->philo[i++].last_meal = ft_get_time();
-	data.is_dead = 0;
+	data->is_dead = 0;
 }
 
 int	ft_init_philo(t_data *data, int nb)
@@ -55,27 +45,15 @@ int	ft_init_philo(t_data *data, int nb)
 		data->philo[i].id = i + 1;
 		if (pthread_mutex_init(&(data->philo[i].r_fork), NULL))
 			return (1);
+		if (i < 1)
+			data->philo[i].l_fork = &(data->philo[data->nb_of - 1].r_fork);
+		else
+			data->philo[i].l_fork = &(data->philo[i - 1].r_fork);
 		if (data->nb_to_eat > -1)
 			data->philo[i].nb_to_eat = data->nb_to_eat;
 		++i;
 	}
 	ft_init_last_meal(data);
-	return (0);
-}
-
-int	ft_create_philo(t_data *data)
-{
-	int		i;
-	t_philo	*tmp;
-
-	i = 0;
-	while (i < data->nb_of)
-	{
-		tmp = &(data->philo[i]);
-		if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
-			return (1);
-		++i;
-	}
 	return (0);
 }
 
