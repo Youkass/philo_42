@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/07 14:27:31 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/25 14:16:00 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/25 14:27:47 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_print_state(t_philo *philo, char *state)
 
 void	ft_sleep(t_philo *philo)
 {
-	ft_usleep(philo->tt_sleep);
 	ft_print_state(philo, "is sleeping");
+	ft_usleep(philo->tt_sleep);
 }
 
 int	ft_take_fork(t_philo *philo)
