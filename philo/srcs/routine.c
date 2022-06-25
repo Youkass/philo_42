@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 14:24:59 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/25 13:08:27 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/25 15:00:57 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_while_odd(t_data *data)
 	i = 0;
 	while (i < data->nb_of)
 	{
-		if (!(i % 2))
+		if (i % 2 != 0)
 		{
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
@@ -51,7 +51,7 @@ int	ft_while_per(t_data *data)
 	i = 0;
 	while (i < data->nb_of)
 	{
-		if (i % 2)
+		if (i % 2 == 0)
 		{
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
@@ -66,6 +66,7 @@ int	ft_while(t_data *data)
 {
 	if (ft_while_odd(data))
 		return (1);
+	printf("fck\n");
 	if (ft_while_per(data))
 		return (1);
 	return (0);

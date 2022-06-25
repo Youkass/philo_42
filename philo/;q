@@ -1,0 +1,11 @@
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v171)
+"   /home/yur4ka_/PROJECTS/FT_42/philo_42/philo/includes
+"   Sorted by time
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:special
+" ==============================================================================
+includes.h
+struct.h
+philo.h
+../
+./
