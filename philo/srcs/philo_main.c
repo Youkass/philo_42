@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/24 15:41:41 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/06/25 14:12:45 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ int	ft_init_philo(t_data *data, int nb)
 		data->philo[i].tt_sleep = data->tt_sleep;
 		data->philo[i].tt_eat = data->tt_eat;
 		data->philo[i].id = i + 1;
+		data->philo[i].is_dead = 0;
+		data->philo[i].start = ft_get_time();
 		if (pthread_mutex_init(&(data->philo[i].r_fork), NULL))
 			return (1);
 		if (i < 1)

@@ -22,11 +22,35 @@
 int	ft_strlen(char *s);
 
 /* -------------------------------------------------------------------------- */
+/*                           FILE = srcs/routine.c                            */
+/* -------------------------------------------------------------------------- */
+void	*ft_routine(void *philo_p);
+int	ft_while_odd(t_data *data);
+int	ft_while_per(t_data *data);
+int	ft_while(t_data *data);
+int	ft_philo_dead(t_data *data);
+int	ft_create_philo(t_data *data);
+
+/* -------------------------------------------------------------------------- */
 /*                           FILE = srcs/ft_atol.c                            */
 /* -------------------------------------------------------------------------- */
 int	ft_check(char c);
 int	ft_space(char c);
 long	ft_atol(char *nbr);
+
+/* -------------------------------------------------------------------------- */
+/*                            FILE = srcs/utils.c                             */
+/* -------------------------------------------------------------------------- */
+int	ft_get_time(void);
+
+/* -------------------------------------------------------------------------- */
+/*                          FILE = srcs/philo_main.c                          */
+/* -------------------------------------------------------------------------- */
+int	ft_create_data(t_data *data, int nb);
+void	ft_init_last_meal(t_data *data);
+int	ft_init_philo(t_data *data, int nb);
+int	ft_join(t_data *data);
+int	main(int ac, char **av);
 
 /* -------------------------------------------------------------------------- */
 /*                          FILE = srcs/check_args.c                          */
@@ -41,28 +65,13 @@ int	ft_check_all(char **args, int nb);
 int	ft_parse(t_data *data, char **av, int ac);
 
 /* -------------------------------------------------------------------------- */
-/*                            FILE = srcs/utils.c                             */
-/* -------------------------------------------------------------------------- */
-int	ft_get_time(void);
-
-/* -------------------------------------------------------------------------- */
 /*                            FILE = srcs/action.c                            */
 /* -------------------------------------------------------------------------- */
 void	ft_print_state(t_philo *philo, char *state);
 void	ft_sleep(t_philo *philo);
-void	ft_think(t_philo *philo);
 int	ft_take_fork(t_philo *philo);
 int	ft_eat(t_philo *philo);
-
-/* -------------------------------------------------------------------------- */
-/*                           FILE = srcs/routine.c                            */
-/* -------------------------------------------------------------------------- */
-void	*ft_routine(void *philo_p);
-int	ft_while_odd(t_data *data);
-int	ft_while_per(t_data *data);
-int	ft_while(t_data *data);
-int	ft_philo_dead(t_data *data);
-int	ft_create_philo(t_data *data);
+void	ft_usleep(int time);
 
 /* -------------------------------------------------------------------------- */
 /*                        FILE = srcs/error_message.c                         */
@@ -70,15 +79,6 @@ int	ft_create_philo(t_data *data);
 void	ft_putstr_fd(int fd, char *s);
 void	ft_invalid_args(void);
 void	ft_invalid_nb(void);
-
-/* -------------------------------------------------------------------------- */
-/*                          FILE = srcs/philo_main.c                          */
-/* -------------------------------------------------------------------------- */
-int	ft_create_data(t_data *data, int nb);
-void	ft_init_last_meal(t_data *data);
-int	ft_init_philo(t_data *data, int nb);
-int	ft_join(t_data *data);
-int	main(int ac, char **av);
 
 
 #endif
