@@ -6,7 +6,7 @@
 /*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/02 14:24:23 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/30 12:59:10 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/01 09:27:25 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_philo
 	int				tt_eat;
 	int				nb_to_eat;
 	int				is_dead;
-	long			last_meal;
+	int				last_meal;
 	int				start;
 	pthread_mutex_t	*l_fork;
 	pthread_mutex_t	*r_fork;
@@ -37,6 +37,7 @@ typedef struct	s_data
 	int				nb_of;
 	int				is_dead;
 	int				nb_to_eat;
+	int				start;
 	t_philo			*philo;
 	pthread_mutex_t	*forks;
 }	t_data;
