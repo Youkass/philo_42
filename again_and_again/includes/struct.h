@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:02:10 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/07 14:32:48 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/08 13:09:12 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_philo
 	int				nb_to_eat;
 	int				last_meal;
 	int				start;
-	int				is_dead;
+	int				*is_dead;
 	void			*data;
 }	t_philo;
 
