@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:32:58 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/08 14:02:44 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:08:16 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int	ft_init_philo(t_data *data, int nb)
 			data->philo[i].nb_to_eat = data->nb_to_eat;
 		++i;
 	}
-	ft_assign_fork(data);
+	if (ft_assign_fork(data))
+		return (1);
 	ft_init_last_meal(data);
 	return (0);
 }

@@ -6,14 +6,19 @@
 #    By: yobougre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/02 13:27:10 by yobougre          #+#    #+#              #
-#    Updated: 2022/07/07 14:01:47 by yobougre         ###   ########.fr        #
+#    Updated: 2022/07/12 13:06:54 by yobougre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	philo
 
 SRCS=	srcs/main.c\
-		srcs/utils.c
+		srcs/utils.c\
+		srcs/action.c\
+		srcs/check_args.c\
+		srcs/error_message.c\
+		srcs/ft_atol.c\
+		srcs/parsing.c
 
 
 INCL=	includes/includes.h\
@@ -28,9 +33,6 @@ RM=		rm -f
 
 CC=		gcc
 
-all: $(NAME)
-
-
 $(NAME): $(INCL) $(OBJS)
 	@echo "\033[1;34m"
 	@echo "Project name : $(NAME)"
@@ -38,6 +40,8 @@ $(NAME): $(INCL) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)	
 	@make wait
 	@echo "Bonne correction!"
+
+all: $(NAME)
 
 clean:
 	@$(RM) $(OBJS)

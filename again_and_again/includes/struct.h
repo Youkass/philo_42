@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:02:10 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/08 13:09:12 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/12 13:07:18 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 typedef struct	s_philo
 {
 	pthread_t		thread_id;
+	int				id;
 	int				tt_eat;
 	int				tt_die;
 	int				tt_sleep;
