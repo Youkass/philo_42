@@ -67,6 +67,16 @@ int	main(int ac, char **av);
 /* -------------------------------------------------------------------------- */
 int	ft_init_mutex(t_data *data);
 int	ft_assign_fork(t_data *data);
+int	ft_create_philo(t_data *data);
+
+/* -------------------------------------------------------------------------- */
+/*                           FILE = srcs/routine.c                            */
+/* -------------------------------------------------------------------------- */
+void	*ft_routine(void *philo_p);
+int	ft_while_odd(t_data *data);
+int	ft_while_per(t_data *data);
+int	ft_while(t_data *data);
+int	ft_philo_dead(t_data *data);
 
 
 #endif

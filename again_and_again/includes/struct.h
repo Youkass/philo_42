@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:02:10 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/12 13:07:18 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:27:36 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct	s_philo
 	int				start;
 	int				*is_dead;
 	void			*data;
+	pthread_mutex_t	*l_fork;
+	pthread_mutex_t	*r_fork;
 }	t_philo;
 
 typedef struct	s_data

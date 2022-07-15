@@ -6,7 +6,7 @@
 #    By: yobougre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/02 13:27:10 by yobougre          #+#    #+#              #
-#    Updated: 2022/07/12 13:06:54 by yobougre         ###   ########.fr        #
+#    Updated: 2022/07/15 14:29:29 by yobougre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS=	srcs/main.c\
 		srcs/check_args.c\
 		srcs/error_message.c\
 		srcs/ft_atol.c\
+		srcs/routine.c\
 		srcs/parsing.c
 
 

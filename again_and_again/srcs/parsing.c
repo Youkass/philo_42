@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:09:23 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/12 12:34:19 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:54:05 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,31 @@ int	ft_assign_fork(t_data *data)
 		data->philo[i].l_fork = &(data->forks[i - 1]);
 		data->philo[i].r_fork = &(data->forks[i]);
 		++i;
+	}
+	return (0);
+}
+
+int	ft_create_philo(t_data *data)
+{
+	int		i;
+
+	if (data->nb_to_eat > 0)
+	{
+		i = -1;
+		while (i++ < data->nb_to_eat && !data->is_dead)
+			ft_while(data);
+		if (data->is_dead)
+			return (1);
+	}
+	else
+	{
+		while (!ft_philo_dead(data))
+		{
+			printf("ici\n");
+			ft_while(data);
+		}
+		if (data->is_dead)
+			return (1);
 	}
 	return (0);
 }

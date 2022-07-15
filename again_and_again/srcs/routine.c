@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:08:36 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/14 14:06:43 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:41:35 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ int	ft_while(t_data *data)
 		return (1);
 	if (ft_while_odd(data))
 		return (1);
+	if (ft_join(data))
+		return (1);
 	return (0);
 }
 
@@ -79,28 +81,6 @@ int	ft_philo_dead(t_data *data)
 	while (i++ < data->nb_of)
 	{
 		if (data->philo[i].is_dead)
-			return (1);
-	}
-	return (0);
-}
-
-int	ft_create_philo(t_data *data)
-{
-	int		i;
-
-	if (data->nb_to_eat > 0)
-	{
-		i = -1;
-		while (i++ < data->nb_to_eat && !data->is_dead)
-			ft_while(data);
-		if (data->is_dead)
-			return (1);
-	}
-	else
-	{
-		while (!ft_philo_dead(data))
-			ft_while(data);
-		if (data->is_dead)
 			return (1);
 	}
 	return (0);

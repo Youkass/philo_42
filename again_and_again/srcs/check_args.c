@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:10:20 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/08 14:01:17 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:53:32 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_parse(t_data *data, char **av, int ac)
 	if (ac == 6)
 		data->nb_to_eat = ft_atol(av[5]);
 	else
-		data->nb_to_eat = -1;
+		data->nb_to_eat = 0;
 	if (ft_init_philo(data, ac))
 		return (1);
 	return (0);
