@@ -24,13 +24,6 @@ int	ft_space(char c);
 long	ft_atol(char *nbr);
 
 /* -------------------------------------------------------------------------- */
-/*                            FILE = srcs/utils.c                             */
-/* -------------------------------------------------------------------------- */
-int	ft_strlen(char *s);
-int	ft_get_time(void);
-int	ft_is_dead(t_philo *philo);
-
-/* -------------------------------------------------------------------------- */
 /*                        FILE = srcs/error_message.c                         */
 /* -------------------------------------------------------------------------- */
 void	ft_putstr_fd(int fd, char *s);
@@ -44,14 +37,6 @@ void	ft_num_len(int nbr, int *size);
 int	ft_check_str(char *s);
 int	ft_check_all(char **args, int nb);
 int	ft_parse(t_data *data, char **av, int ac);
-
-/* -------------------------------------------------------------------------- */
-/*                            FILE = srcs/action.c                            */
-/* -------------------------------------------------------------------------- */
-void	ft_print_state(t_philo *philo, char *state);
-void	ft_sleep(t_philo *philo);
-int	ft_usleep(int time, t_philo *philo);
-int	ft_eat(t_philo *philo);
 
 /* -------------------------------------------------------------------------- */
 /*                             FILE = srcs/main.c                             */
@@ -68,6 +53,21 @@ int	main(int ac, char **av);
 int	ft_init_mutex(t_data *data);
 int	ft_assign_fork(t_data *data);
 int	ft_create_philo(t_data *data);
+
+/* -------------------------------------------------------------------------- */
+/*                            FILE = srcs/action.c                            */
+/* -------------------------------------------------------------------------- */
+void	ft_print_state(t_philo *philo, char *state);
+int	ft_sleep(t_philo *philo);
+int	ft_usleep(int time, t_philo *philo);
+int	ft_eat(t_philo *philo);
+
+/* -------------------------------------------------------------------------- */
+/*                            FILE = srcs/utils.c                             */
+/* -------------------------------------------------------------------------- */
+int	ft_strlen(char *s);
+int	ft_get_time(void);
+int	ft_is_dead(t_philo *philo);
 
 /* -------------------------------------------------------------------------- */
 /*                           FILE = srcs/routine.c                            */
