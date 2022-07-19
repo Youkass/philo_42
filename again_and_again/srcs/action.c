@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:04:13 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/16 13:48:35 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/19 12:08:30 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_usleep(int time, t_philo *philo)
 	{
 		if (ft_is_dead(philo))
 			return (1);
-		usleep(50);
+		usleep(10);
 	}
 	return (0);
 }
@@ -47,7 +47,7 @@ int	ft_eat(t_philo *philo)
 	ft_print_state(philo, "has taken a fork");
 	ft_print_state(philo, "is eating");
 	if (ft_usleep(philo->tt_eat, philo))
-		return (1);
+		return (printf("je meurt ici num : %d\n", philo->id), 1);
 	philo->last_meal = ft_get_time();
 	pthread_mutex_unlock(philo->r_fork);
 	pthread_mutex_unlock(philo->l_fork);
