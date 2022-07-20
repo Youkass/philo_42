@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:11:48 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/16 13:51:26 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:46:39 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ int	ft_get_time(void)
 int	ft_is_dead(t_philo *philo)
 {
 	if (ft_get_time() - philo->last_meal >= philo->tt_die)
+	{
+		*(philo->is_dead) = philo->id;
 		return (1);
+	}
 	return (0);
 }

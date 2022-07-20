@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 13:10:20 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/15 14:53:32 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:34:41 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ int	ft_parse(t_data *data, char **av, int ac)
 	data->tt_die = ft_atol(av[2]);
 	data->tt_eat = ft_atol(av[3]);
 	data->tt_sleep = ft_atol(av[4]);
-	data->is_dead = -1;
+	data->is_dead = 0;
 	if (ac == 6)
 		data->nb_to_eat = ft_atol(av[5]);
 	else
 		data->nb_to_eat = 0;
-	if (ft_init_philo(data, ac))
+	if (ft_init_philo(data, data->nb_of))
 		return (1);
 	return (0);
 }

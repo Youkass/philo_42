@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:08:36 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/16 13:52:10 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:49:58 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_routine(void *philo_p)
 
 	philo = (t_philo *)philo_p;
 	if (ft_eat(philo))
-		return (ft_print_state(philo, "is dead"), NULL);
+		return (NULL);
 	ft_sleep(philo);
 	ft_print_state(philo, "is thinking");
 	return (NULL);
@@ -81,7 +81,8 @@ int	ft_philo_dead(t_data *data)
 	while (i++ < data->nb_of)
 	{
 		if (data->philo[i].is_dead)
-			return (1);
+			return (printf("%d %d is dead\n",
+				ft_get_time() - data->start, data->is_dead), 1);
 	}
 	return (0);
 }

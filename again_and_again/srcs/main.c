@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:32:58 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/15 14:56:10 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/20 11:34:16 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	ft_init_philo(t_data *data, int nb)
 		data->philo[i].id = i + 1;
 		data->philo[i].is_dead = 0;
 		data->philo[i].start = ft_get_time();
+		data->philo[i].is_dead = &(data->is_dead);
 		if (data->nb_to_eat > -1)
 			data->philo[i].nb_to_eat = data->nb_to_eat;
 		++i;
