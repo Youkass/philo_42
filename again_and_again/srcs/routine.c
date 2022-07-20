@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 13:08:36 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/20 11:49:58 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/20 14:23:40 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ int	ft_while_odd(t_data *data)
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
 				return (1);
+			printf("is dead : %d\n", data->is_dead);
+			if (data->is_dead)
+				return (printf("is dead\n"), 1);
 		}
 		++i;
 	}
@@ -56,6 +59,9 @@ int	ft_while_per(t_data *data)
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
 				return (1);
+			printf("is dead : %d\n", data->is_dead);
+			if (data->is_dead)
+				return (printf("is dead\n"), 1);
 		}
 		++i;
 	}
@@ -81,8 +87,7 @@ int	ft_philo_dead(t_data *data)
 	while (i++ < data->nb_of)
 	{
 		if (data->philo[i].is_dead)
-			return (printf("%d %d is dead\n",
-				ft_get_time() - data->start, data->is_dead), 1);
+			return (1);
 	}
 	return (0);
 }
