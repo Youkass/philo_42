@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 14:04:13 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/20 14:11:03 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/21 11:55:29 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_unlock(t_philo *philo)
 
 int	ft_eat(t_philo *philo)
 {
-	if (ft_is_dead(philo))
+	if (*(philo->is_dead))
 		return (1);
 	pthread_mutex_lock(philo->r_fork);
 	ft_print_state(philo, "has taken a fork");
@@ -57,7 +57,7 @@ int	ft_eat(t_philo *philo)
 	ft_print_state(philo, "has taken a fork");
 	ft_print_state(philo, "is eating");
 	if (ft_usleep(philo->tt_eat, philo))
-		return (printf("je passe ici\n"), ft_unlock(philo), 1);
+		return (ft_unlock(philo), 1);
 	philo->last_meal = ft_get_time();
 	ft_unlock(philo);
 	return (0);

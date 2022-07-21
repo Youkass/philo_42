@@ -6,7 +6,7 @@
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:32:58 by yobougre          #+#    #+#             */
-/*   Updated: 2022/07/20 14:16:24 by yobougre         ###   ########.fr       */
+/*   Updated: 2022/07/21 12:04:47 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_create_data(t_data *data, int nb)
 {
-	data->philo = malloc(sizeof(t_philo) * (nb + 1));
+	data->philo = malloc(sizeof(t_philo) * (nb));
 	if (!data->philo)
 		return (1);
 	return (0);
