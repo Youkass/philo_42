@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_main.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yobougre <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/02 13:34:40 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/25 14:12:45 by yobougre         ###   ########.fr       */
+/*   Created: 2022/07/07 14:32:58 by yobougre          #+#    #+#             */
+/*   Updated: 2022/07/21 13:18:09 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_create_data(t_data *data, int nb)
 {
-	data->philo = malloc(sizeof(t_philo) * (nb + 1));
+	data->philo = malloc(sizeof(t_philo) * (nb));
 	if (!data->philo)
 		return (1);
 	return (0);
@@ -45,16 +45,13 @@ int	ft_init_philo(t_data *data, int nb)
 		data->philo[i].id = i + 1;
 		data->philo[i].is_dead = 0;
 		data->philo[i].start = ft_get_time();
-		if (pthread_mutex_init(&(data->philo[i].r_fork), NULL))
-			return (1);
-		if (i < 1)
-			data->philo[i].l_fork = &(data->philo[data->nb_of - 1].r_fork);
-		else
-			data->philo[i].l_fork = &(data->philo[i - 1].r_fork);
+		data->philo[i].is_dead = &(data->is_dead);
 		if (data->nb_to_eat > -1)
 			data->philo[i].nb_to_eat = data->nb_to_eat;
 		++i;
 	}
+	if (ft_assign_fork(data))
+		return (1);
 	ft_init_last_meal(data);
 	return (0);
 }
@@ -84,10 +81,12 @@ int	main(int ac, char **av)
 		if (ft_parse(&data, av, ac))
 			return (1);
 		if (ft_create_philo(&data))
+		{
+			if (data.is_dead)
+				printf("%d %d is dead\n", ft_get_time() - data.start, data.is_dead);
+			free(data.philo);
 			return (1);
-		if (ft_join(&data))
-			return (1);
-		free(data.philo);
+		}
 		return (0);
 	}
 	else

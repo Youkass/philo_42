@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yobougre <yobougre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 14:24:59 by yobougre          #+#    #+#             */
-/*   Updated: 2022/06/30 12:27:27 by yobougre         ###   ########.fr       */
+/*   Created: 2022/07/12 13:08:36 by yobougre          #+#    #+#             */
+/*   Updated: 2022/07/21 11:49:11 by yobougre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	*ft_routine(void *philo_p)
 	t_philo	*philo;
 
 	philo = (t_philo *)philo_p;
-	if (ft_take_fork(philo))
-		return (ft_print_state(philo, "is dead"), NULL);
+	if (ft_eat(philo))
+		return (NULL);
 	ft_sleep(philo);
 	ft_print_state(philo, "is thinking");
 	return (NULL);
@@ -36,6 +36,8 @@ int	ft_while_odd(t_data *data)
 		{
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
+				return (1);
+			if (data->is_dead)
 				return (1);
 		}
 		++i;
@@ -56,6 +58,8 @@ int	ft_while_per(t_data *data)
 			tmp = &(data->philo[i]);
 			if (pthread_create(&(data->philo[i].thread_id), NULL, &ft_routine, tmp))
 				return (1);
+			if (data->is_dead)
+				return (1);
 		}
 		++i;
 	}
@@ -68,6 +72,8 @@ int	ft_while(t_data *data)
 		return (1);
 	if (ft_while_odd(data))
 		return (1);
+	if (ft_join(data))
+		return (1);
 	return (0);
 }
 
@@ -79,28 +85,6 @@ int	ft_philo_dead(t_data *data)
 	while (i++ < data->nb_of)
 	{
 		if (data->philo[i].is_dead)
-			return (1);
-	}
-	return (0);
-}
-
-int	ft_create_philo(t_data *data)
-{
-	int		i;
-
-	if (data->nb_to_eat > 0)
-	{
-		i = -1;
-		while (i++ < data->nb_to_eat && !data->is_dead)
-			ft_while(data);
-		if (data->is_dead)
-			return (1);
-	}
-	else
-	{
-		while (!ft_philo_dead(data))
-			ft_while(data);
-		if (data->is_dead)
 			return (1);
 	}
 	return (0);

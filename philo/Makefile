@@ -6,19 +6,18 @@
 #    By: yobougre <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/02 13:27:10 by yobougre          #+#    #+#              #
-#    Updated: 2022/06/24 15:40:23 by yobougre         ###   ########.fr        #
+#    Updated: 2022/07/15 14:29:29 by yobougre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	philo
 
-SRCS=	srcs/philo_main.c\
-		srcs/check_args.c\
-		srcs/error_message.c\
-		srcs/utils_str.c\
-		srcs/ft_atol.c\
+SRCS=	srcs/main.c\
 		srcs/utils.c\
 		srcs/action.c\
+		srcs/check_args.c\
+		srcs/error_message.c\
+		srcs/ft_atol.c\
 		srcs/routine.c\
 		srcs/parsing.c
 
@@ -35,9 +34,6 @@ RM=		rm -f
 
 CC=		gcc
 
-all: $(NAME)
-
-
 $(NAME): $(INCL) $(OBJS)
 	@echo "\033[1;34m"
 	@echo "Project name : $(NAME)"
@@ -45,6 +41,8 @@ $(NAME): $(INCL) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)	
 	@make wait
 	@echo "Bonne correction!"
+
+all: $(NAME)
 
 clean:
 	@$(RM) $(OBJS)
